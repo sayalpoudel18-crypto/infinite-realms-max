@@ -1,0 +1,615 @@
+{
+  "base": "http://127.0.0.1:3183",
+  "timestamp": "2026-09-12T20:54:15.324Z",
+  "checks": [
+    {
+      "name": "GET / serves the game, without a login redirect",
+      "status": "PASS"
+    },
+    {
+      "name": "Rendered inline browser JavaScript parses",
+      "status": "PASS"
+    },
+    {
+      "name": "GET /api/health returns healthy JSON",
+      "status": "PASS"
+    },
+    {
+      "name": "Story request returns narration: Try to find out what your roots are",
+      "status": "PASS"
+    },
+    {
+      "name": "Story request returns narration: What do you recommend I should do",
+      "status": "PASS"
+    },
+    {
+      "name": "Does not narrate the request as an action: What do you recommend I should do",
+      "status": "FAIL",
+      "error": "The input was expected to not match the regular expression /\\bacts at\\b|The situation has changed|A small detail changes the situation/. Input:\n\n'Acceptance Player acts at Opening Scene: **What do you recommend I should do**\\n' +\n  '\\n' +\n  'The world reacts instead of waiting for you. Nearby people exchange guarded looks, and a new complication takes shape just beyond your immediate view.\\n' +\n  '\\n' +\n  'A small detail changes the situation: there is now a choice between pressing the advantage, gathering more information, or backing away before the consequences deepen. What do you do?'\n"
+    },
+    {
+      "name": "Story request returns narration: Find out what your roots are",
+      "status": "PASS"
+    },
+    {
+      "name": "Story request returns narration: Story direction: What do I do next then?",
+      "status": "PASS"
+    },
+    {
+      "name": "Does not narrate the request as an action: Story direction: What do I do next then?",
+      "status": "FAIL",
+      "error": "The input was expected to not match the regular expression /\\bacts at\\b|The situation has changed|A small detail changes the situation/. Input:\n\n'Acceptance Player acts at Opening Scene: **Story direction: What do I do next then?**\\n' +\n  '\\n' +\n  'The world reacts instead of waiting for you. Nearby people exchange guarded looks, and a new complication takes shape just beyond your immediate view.\\n' +\n  '\\n' +\n  'A small detail changes the situation: there is now a choice between pressing the advantage, gathering more information, or backing away before the consequences deepen. What do you do?'\n"
+    },
+    {
+      "name": "Story request returns narration: I’m confused on what I should be doing",
+      "status": "PASS"
+    },
+    {
+      "name": "Does not narrate the request as an action: I’m confused on what I should be doing",
+      "status": "FAIL",
+      "error": "The input was expected to not match the regular expression /\\bacts at\\b|The situation has changed|A small detail changes the situation/. Input:\n\n'Acceptance Player acts at Opening Scene: **I’m confused on what I should be doing**\\n' +\n  '\\n' +\n  'The world reacts instead of waiting for you. Nearby people exchange guarded looks, and a new complication takes shape just beyond your immediate view.\\n' +\n  '\\n' +\n  'A small detail changes the situation: there is now a choice between pressing the advantage, gathering more information, or backing away before the consequences deepen. What do you do?'\n"
+    },
+    {
+      "name": "Story request returns narration: H",
+      "status": "PASS"
+    },
+    {
+      "name": "Does not narrate the request as an action: H",
+      "status": "FAIL",
+      "error": "The input was expected to not match the regular expression /\\bacts at\\b|The situation has changed|A small detail changes the situation/. Input:\n\n'Acceptance Player acts at Opening Scene: **H**\\n' +\n  '\\n' +\n  'The world reacts instead of waiting for you. Nearby people exchange guarded looks, and a new complication takes shape just beyond your immediate view.\\n' +\n  '\\n' +\n  'A small detail changes the situation: there is now a choice between pressing the advantage, gathering more information, or backing away before the consequences deepen. What do you do?'\n"
+    },
+    {
+      "name": "Story request returns narration: Cultivate",
+      "status": "PASS"
+    },
+    {
+      "name": "Cultivation increases actual Qi and XP",
+      "status": "FAIL",
+      "error": "XP did not increase."
+    },
+    {
+      "name": "Story request returns narration: Show me my stats",
+      "status": "PASS"
+    },
+    {
+      "name": "Does not narrate the request as an action: Show me my stats",
+      "status": "FAIL",
+      "error": "The input was expected to not match the regular expression /\\bacts at\\b|The situation has changed|A small detail changes the situation/. Input:\n\n'Acceptance Player acts at Opening Scene: **Show me my stats**\\n' +\n  '\\n' +\n  'The world reacts instead of waiting for you. Nearby people exchange guarded looks, and a new complication takes shape just beyond your immediate view.\\n' +\n  '\\n' +\n  'A small detail changes the situation: there is now a choice between pressing the advantage, gathering more information, or backing away before the consequences deepen. What do you do?'\n"
+    },
+    {
+      "name": "Stats response shows the current HP, Qi and XP",
+      "status": "FAIL",
+      "error": "The input did not match the regular expression /HP[^\\d]*100/i. Input:\n\n'Acceptance Player acts at Opening Scene: **Show me my stats**\\n' +\n  '\\n' +\n  'The world reacts instead of waiting for you. Nearby people exchange guarded looks, and a new complication takes shape just beyond your immediate view.\\n' +\n  '\\n' +\n  'A small detail changes the situation: there is now a choice between pressing the advantage, gathering more information, or backing away before the consequences deepen. What do you do?'\n"
+    },
+    {
+      "name": "Only the three in-world actions advance turns",
+      "status": "FAIL",
+      "error": "Expected values to be strictly equal:\n\n0 !== 3\n"
+    },
+    {
+      "name": "Dice have valid bounds and arithmetic",
+      "status": "PASS"
+    },
+    {
+      "name": "Invalid dice rejected with 400: 0d6",
+      "status": "FAIL",
+      "error": "Expected values to be strictly equal:\n\n200 !== 400\n"
+    },
+    {
+      "name": "Invalid dice rejected with 400: 1d1",
+      "status": "FAIL",
+      "error": "Expected values to be strictly equal:\n\n200 !== 400\n"
+    },
+    {
+      "name": "Invalid dice rejected with 400: 51d6",
+      "status": "FAIL",
+      "error": "Expected values to be strictly equal:\n\n200 !== 400\n"
+    },
+    {
+      "name": "Invalid dice rejected with 400: 1d0",
+      "status": "FAIL",
+      "error": "Expected values to be strictly equal:\n\n200 !== 400\n"
+    },
+    {
+      "name": "Invalid dice rejected with 400: abc",
+      "status": "FAIL",
+      "error": "Expected values to be strictly equal:\n\n500 !== 400\n"
+    },
+    {
+      "name": "Malformed request rejected with 400: broken JSON",
+      "status": "FAIL",
+      "error": "Expected values to be strictly equal:\n\n500 !== 400\n"
+    },
+    {
+      "name": "Malformed request rejected with 400: null body",
+      "status": "FAIL",
+      "error": "Expected values to be strictly equal:\n\n500 !== 400\n"
+    },
+    {
+      "name": "Malformed request rejected with 400: array body",
+      "status": "FAIL",
+      "error": "Expected values to be strictly equal:\n\n500 !== 400\n"
+    },
+    {
+      "name": "Malformed request rejected with 400: empty message",
+      "status": "FAIL",
+      "error": "Expected values to be strictly equal:\n\n500 !== 400\n"
+    },
+    {
+      "name": "Malformed request rejected with 400: object message",
+      "status": "FAIL",
+      "error": "Expected values to be strictly equal:\n\n200 !== 400\n"
+    },
+    {
+      "name": "Malformed request rejected with 400: overlong message",
+      "status": "FAIL",
+      "error": "Expected values to be strictly equal:\n\n200 !== 400\n"
+    },
+    {
+      "name": "100 sequential requests stay responsive with valid stat bounds",
+      "status": "PASS"
+    },
+    {
+      "name": "12 concurrent independent requests return without mixing player names",
+      "status": "PASS"
+    }
+  ],
+  "conversation": [
+    {
+      "message": "Try to find out what your roots are",
+      "expectedIntent": "ACTION",
+      "status": 200,
+      "response": {
+        "narration": "Acceptance Player acts at Opening Scene: **Try to find out what your roots are**\n\nThe world reacts instead of waiting for you. Nearby people exchange guarded looks, and a new complication takes shape just beyond your immediate view.\n\nA small detail changes the situation: there is now a choice between pressing the advantage, gathering more information, or backing away before the consequences deepen. What do you do?",
+        "stateChanges": [],
+        "memories": [
+          {
+            "text": "Acceptance Player chose to Try to find out what your roots are at Opening Scene.",
+            "importance": 55
+          }
+        ],
+        "provider": "demo"
+      },
+      "before": {
+        "hp": {
+          "current": 100,
+          "max": 100
+        },
+        "qi": {
+          "current": 50,
+          "max": 100
+        },
+        "xp": 0,
+        "gold": 0,
+        "turn": 0,
+        "realm": "Body Tempering — Stage 1",
+        "location": "Opening Scene",
+        "inventory": [],
+        "relationships": {},
+        "quests": [],
+        "timeline": []
+      },
+      "after": {
+        "hp": {
+          "current": 100,
+          "max": 100
+        },
+        "qi": {
+          "current": 50,
+          "max": 100
+        },
+        "xp": 0,
+        "gold": 0,
+        "turn": 0,
+        "realm": "Body Tempering — Stage 1",
+        "location": "Opening Scene",
+        "inventory": [],
+        "relationships": {},
+        "quests": [],
+        "timeline": []
+      }
+    },
+    {
+      "message": "What do you recommend I should do",
+      "expectedIntent": "ADVICE",
+      "status": 200,
+      "response": {
+        "narration": "Acceptance Player acts at Opening Scene: **What do you recommend I should do**\n\nThe world reacts instead of waiting for you. Nearby people exchange guarded looks, and a new complication takes shape just beyond your immediate view.\n\nA small detail changes the situation: there is now a choice between pressing the advantage, gathering more information, or backing away before the consequences deepen. What do you do?",
+        "stateChanges": [],
+        "memories": [
+          {
+            "text": "Acceptance Player chose to What do you recommend I should do at Opening Scene.",
+            "importance": 55
+          }
+        ],
+        "provider": "demo"
+      },
+      "before": {
+        "hp": {
+          "current": 100,
+          "max": 100
+        },
+        "qi": {
+          "current": 50,
+          "max": 100
+        },
+        "xp": 0,
+        "gold": 0,
+        "turn": 0,
+        "realm": "Body Tempering — Stage 1",
+        "location": "Opening Scene",
+        "inventory": [],
+        "relationships": {},
+        "quests": [],
+        "timeline": []
+      },
+      "after": {
+        "hp": {
+          "current": 100,
+          "max": 100
+        },
+        "qi": {
+          "current": 50,
+          "max": 100
+        },
+        "xp": 0,
+        "gold": 0,
+        "turn": 0,
+        "realm": "Body Tempering — Stage 1",
+        "location": "Opening Scene",
+        "inventory": [],
+        "relationships": {},
+        "quests": [],
+        "timeline": []
+      }
+    },
+    {
+      "message": "Find out what your roots are",
+      "expectedIntent": "ACTION",
+      "status": 200,
+      "response": {
+        "narration": "Acceptance Player acts at Opening Scene: **Find out what your roots are**\n\nThe world reacts instead of waiting for you. Nearby people exchange guarded looks, and a new complication takes shape just beyond your immediate view.\n\nA small detail changes the situation: there is now a choice between pressing the advantage, gathering more information, or backing away before the consequences deepen. What do you do?",
+        "stateChanges": [],
+        "memories": [
+          {
+            "text": "Acceptance Player chose to Find out what your roots are at Opening Scene.",
+            "importance": 55
+          }
+        ],
+        "provider": "demo"
+      },
+      "before": {
+        "hp": {
+          "current": 100,
+          "max": 100
+        },
+        "qi": {
+          "current": 50,
+          "max": 100
+        },
+        "xp": 0,
+        "gold": 0,
+        "turn": 0,
+        "realm": "Body Tempering — Stage 1",
+        "location": "Opening Scene",
+        "inventory": [],
+        "relationships": {},
+        "quests": [],
+        "timeline": []
+      },
+      "after": {
+        "hp": {
+          "current": 100,
+          "max": 100
+        },
+        "qi": {
+          "current": 50,
+          "max": 100
+        },
+        "xp": 0,
+        "gold": 0,
+        "turn": 0,
+        "realm": "Body Tempering — Stage 1",
+        "location": "Opening Scene",
+        "inventory": [],
+        "relationships": {},
+        "quests": [],
+        "timeline": []
+      }
+    },
+    {
+      "message": "Story direction: What do I do next then?",
+      "expectedIntent": "META",
+      "status": 200,
+      "response": {
+        "narration": "Acceptance Player acts at Opening Scene: **Story direction: What do I do next then?**\n\nThe world reacts instead of waiting for you. Nearby people exchange guarded looks, and a new complication takes shape just beyond your immediate view.\n\nA small detail changes the situation: there is now a choice between pressing the advantage, gathering more information, or backing away before the consequences deepen. What do you do?",
+        "stateChanges": [],
+        "memories": [
+          {
+            "text": "Acceptance Player chose to Story direction: What do I do next then? at Opening Scene.",
+            "importance": 55
+          }
+        ],
+        "provider": "demo"
+      },
+      "before": {
+        "hp": {
+          "current": 100,
+          "max": 100
+        },
+        "qi": {
+          "current": 50,
+          "max": 100
+        },
+        "xp": 0,
+        "gold": 0,
+        "turn": 0,
+        "realm": "Body Tempering — Stage 1",
+        "location": "Opening Scene",
+        "inventory": [],
+        "relationships": {},
+        "quests": [],
+        "timeline": []
+      },
+      "after": {
+        "hp": {
+          "current": 100,
+          "max": 100
+        },
+        "qi": {
+          "current": 50,
+          "max": 100
+        },
+        "xp": 0,
+        "gold": 0,
+        "turn": 0,
+        "realm": "Body Tempering — Stage 1",
+        "location": "Opening Scene",
+        "inventory": [],
+        "relationships": {},
+        "quests": [],
+        "timeline": []
+      }
+    },
+    {
+      "message": "I’m confused on what I should be doing",
+      "expectedIntent": "HELP",
+      "status": 200,
+      "response": {
+        "narration": "Acceptance Player acts at Opening Scene: **I’m confused on what I should be doing**\n\nThe world reacts instead of waiting for you. Nearby people exchange guarded looks, and a new complication takes shape just beyond your immediate view.\n\nA small detail changes the situation: there is now a choice between pressing the advantage, gathering more information, or backing away before the consequences deepen. What do you do?",
+        "stateChanges": [],
+        "memories": [
+          {
+            "text": "Acceptance Player chose to I’m confused on what I should be doing at Opening Scene.",
+            "importance": 55
+          }
+        ],
+        "provider": "demo"
+      },
+      "before": {
+        "hp": {
+          "current": 100,
+          "max": 100
+        },
+        "qi": {
+          "current": 50,
+          "max": 100
+        },
+        "xp": 0,
+        "gold": 0,
+        "turn": 0,
+        "realm": "Body Tempering — Stage 1",
+        "location": "Opening Scene",
+        "inventory": [],
+        "relationships": {},
+        "quests": [],
+        "timeline": []
+      },
+      "after": {
+        "hp": {
+          "current": 100,
+          "max": 100
+        },
+        "qi": {
+          "current": 50,
+          "max": 100
+        },
+        "xp": 0,
+        "gold": 0,
+        "turn": 0,
+        "realm": "Body Tempering — Stage 1",
+        "location": "Opening Scene",
+        "inventory": [],
+        "relationships": {},
+        "quests": [],
+        "timeline": []
+      }
+    },
+    {
+      "message": "H",
+      "expectedIntent": "UNCLEAR",
+      "status": 200,
+      "response": {
+        "narration": "Acceptance Player acts at Opening Scene: **H**\n\nThe world reacts instead of waiting for you. Nearby people exchange guarded looks, and a new complication takes shape just beyond your immediate view.\n\nA small detail changes the situation: there is now a choice between pressing the advantage, gathering more information, or backing away before the consequences deepen. What do you do?",
+        "stateChanges": [],
+        "memories": [
+          {
+            "text": "Acceptance Player chose to H at Opening Scene.",
+            "importance": 55
+          }
+        ],
+        "provider": "demo"
+      },
+      "before": {
+        "hp": {
+          "current": 100,
+          "max": 100
+        },
+        "qi": {
+          "current": 50,
+          "max": 100
+        },
+        "xp": 0,
+        "gold": 0,
+        "turn": 0,
+        "realm": "Body Tempering — Stage 1",
+        "location": "Opening Scene",
+        "inventory": [],
+        "relationships": {},
+        "quests": [],
+        "timeline": []
+      },
+      "after": {
+        "hp": {
+          "current": 100,
+          "max": 100
+        },
+        "qi": {
+          "current": 50,
+          "max": 100
+        },
+        "xp": 0,
+        "gold": 0,
+        "turn": 0,
+        "realm": "Body Tempering — Stage 1",
+        "location": "Opening Scene",
+        "inventory": [],
+        "relationships": {},
+        "quests": [],
+        "timeline": []
+      }
+    },
+    {
+      "message": "Cultivate",
+      "expectedIntent": "ACTION",
+      "status": 200,
+      "response": {
+        "narration": "Acceptance Player acts at Opening Scene: **Cultivate**\n\nThe training produces a real but limited gain. Progress comes with strain, revealing a bottleneck you will eventually have to solve rather than skip.\n\nA small detail changes the situation: there is now a choice between pressing the advantage, gathering more information, or backing away before the consequences deepen. What do you do?",
+        "stateChanges": [
+          {
+            "type": "stat",
+            "key": "qi.current",
+            "op": "inc",
+            "value": 3
+          }
+        ],
+        "memories": [
+          {
+            "text": "Acceptance Player chose to Cultivate at Opening Scene.",
+            "importance": 55
+          }
+        ],
+        "provider": "demo"
+      },
+      "before": {
+        "hp": {
+          "current": 100,
+          "max": 100
+        },
+        "qi": {
+          "current": 50,
+          "max": 100
+        },
+        "xp": 0,
+        "gold": 0,
+        "turn": 0,
+        "realm": "Body Tempering — Stage 1",
+        "location": "Opening Scene",
+        "inventory": [],
+        "relationships": {},
+        "quests": [],
+        "timeline": []
+      },
+      "after": {
+        "hp": {
+          "current": 100,
+          "max": 100
+        },
+        "qi": {
+          "current": 53,
+          "max": 100
+        },
+        "xp": 0,
+        "gold": 0,
+        "turn": 0,
+        "realm": "Body Tempering — Stage 1",
+        "location": "Opening Scene",
+        "inventory": [],
+        "relationships": {},
+        "quests": [],
+        "timeline": []
+      }
+    },
+    {
+      "message": "Show me my stats",
+      "expectedIntent": "STATS",
+      "status": 200,
+      "response": {
+        "narration": "Acceptance Player acts at Opening Scene: **Show me my stats**\n\nThe world reacts instead of waiting for you. Nearby people exchange guarded looks, and a new complication takes shape just beyond your immediate view.\n\nA small detail changes the situation: there is now a choice between pressing the advantage, gathering more information, or backing away before the consequences deepen. What do you do?",
+        "stateChanges": [],
+        "memories": [
+          {
+            "text": "Acceptance Player chose to Show me my stats at Opening Scene.",
+            "importance": 55
+          }
+        ],
+        "provider": "demo"
+      },
+      "before": {
+        "hp": {
+          "current": 100,
+          "max": 100
+        },
+        "qi": {
+          "current": 53,
+          "max": 100
+        },
+        "xp": 0,
+        "gold": 0,
+        "turn": 0,
+        "realm": "Body Tempering — Stage 1",
+        "location": "Opening Scene",
+        "inventory": [],
+        "relationships": {},
+        "quests": [],
+        "timeline": []
+      },
+      "after": {
+        "hp": {
+          "current": 100,
+          "max": 100
+        },
+        "qi": {
+          "current": 53,
+          "max": 100
+        },
+        "xp": 0,
+        "gold": 0,
+        "turn": 0,
+        "realm": "Body Tempering — Stage 1",
+        "location": "Opening Scene",
+        "inventory": [],
+        "relationships": {},
+        "quests": [],
+        "timeline": []
+      }
+    }
+  ],
+  "health": {
+    "ok": true,
+    "app": "Infinite Realms Max",
+    "version": "0.5-live",
+    "ai": "demo",
+    "model": "built-in fallback",
+    "freeMode": true
+  },
+  "limits": [
+    "API responsiveness does not establish same-save concurrency safety, replay protection or persistence.",
+    "Clue substance, NPC continuity, fixed mystery truth and encrypted GM saves require review of the actual v0.9 implementation.",
+    "This script does not substitute for desktop/mobile browser interaction, console and network inspection."
+  ],
+  "summary": {
+    "passed": 14,
+    "failed": 19
+  }
+}
