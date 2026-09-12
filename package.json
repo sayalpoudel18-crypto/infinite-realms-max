@@ -1,11 +1,11 @@
 {
   "name": "infinite-realms-max",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "private": true,
   "description": "Mobile-first Infinite Realms AI RPG web runtime.",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
+    "start": "node launcher.js",
+    "dev": "node launcher.js"
   },
   "engines": {
     "node": ">=20"
