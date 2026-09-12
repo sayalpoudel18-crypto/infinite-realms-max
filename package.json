@@ -2,10 +2,10 @@
   "name": "infinite-realms-max",
   "version": "0.4.0",
   "private": true,
-  "description": "Browser-first AI interactive story platform with Questner-style campaign cards, persistent memory, community browsing, and a multi-model specialist council.",
+  "description": "Browser-first AI interactive story platform with persistent memory, campaign creation, community games, deterministic mechanics, and multi-model AI routing.",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node --watch server.js",
+    "start": "node bootstrap.js",
+    "dev": "node bootstrap.js",
     "test": "node tests.js",
     "check": "node --check server.js && node --check public/app.js && node tests.js"
   },
